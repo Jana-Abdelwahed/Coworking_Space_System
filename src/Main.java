@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 import java.lang.String;
+
 public class Main {
 
     public static int x;
@@ -61,7 +62,6 @@ public class Main {
                     System.out.print("Enter your password: ");
                     String visitorPassword = scanner.next();
                     Visitor v = new Visitor(visitorName, visitorPassword);
-//                    v.login(visitorName, visitorPassword);
                     x = v.login(visitorName, visitorPassword);
                     if (x == -1) {
                         Visitor.register(WorkSpace.visitorList);
@@ -74,7 +74,6 @@ public class Main {
                             InstructorVisitorMenu();
                         }
                     }
-//                    TypeMenu();
                     break;
 
                 case 3:
@@ -116,8 +115,8 @@ public class Main {
             System.out.println("                1. Make Reservation :                ");
             System.out.println("                2. Update Reservation :              ");
             System.out.println("                3. Cancel Reservation :              ");
-            System.out.println("                4. display your reservations :       ");
-            System.out.println("                0. log out :                         ");
+            System.out.println("                4. Display your reservations :       ");
+            System.out.println("                0. Log out :                         ");
             System.out.println("-----------------------------------------------------");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -129,13 +128,14 @@ public class Main {
                     break;
 
                 case 2:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).updateReservation();
                     break;
                 case 3:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).cancelReservation();
                     break;
                 case 4:
-//                    WorkSpace.visitorList.get(x).displayReservationsData();
                     WorkSpace.visitorList.get(x).displayVisitorReservation();
                     break;
                 case 0:
@@ -163,7 +163,7 @@ public class Main {
             System.out.println("               2. Update Reservation :               ");
             System.out.println("               3. Cancel Reservation :               ");
             System.out.println("               4. Display Reservation :              ");
-            System.out.println("               0. log out :                          ");
+            System.out.println("               0. Log out :                          ");
             System.out.println("-----------------------------------------------------");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -174,13 +174,14 @@ public class Main {
                     WorkSpace.visitorList.get(x).displayReservationsData();
                     break;
                 case 2:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).updateReservation();
                     break;
                 case 3:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).cancelReservation();
                     break;
                 case 4:
-//                    WorkSpace.visitorList.get(x).displayReservationsData();
                     WorkSpace.visitorList.get(x).displayVisitorReservation();
                     break;
                 case 0:
@@ -207,7 +208,7 @@ public class Main {
             System.out.println("             2. Update Reservation :                 ");
             System.out.println("             3. Cancel Reservation :                 ");
             System.out.println("             4. Display Reservation :                ");
-            System.out.println("             0. log out.. :                          ");
+            System.out.println("             0. Log out.. :                          ");
             System.out.println("-----------------------------------------------------");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -218,13 +219,14 @@ public class Main {
                     WorkSpace.visitorList.get(x).displayReservationsData();
                     break;
                 case 2:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).updateReservation();
                     break;
                 case 3:
+                    WorkSpace.visitorList.get(x).displayVisitorReservation();
                     WorkSpace.visitorList.get(x).cancelReservation();
                     break;
                 case 4:
-//                    WorkSpace.visitorList.get(x).displayReservationsData();
                     WorkSpace.visitorList.get(x).displayVisitorReservation();
                     break;
                 case 0:
@@ -257,7 +259,7 @@ public class Main {
             System.out.println("                   7. Calculate and Display Total Amount of fees");
             System.out.println("                   8. Update Any Data of Any Entity  ");
             System.out.println("                   9. Display Leader Board           ");
-            System.out.println("                   0. log out :                      ");
+            System.out.println("                   0. Log out :                      ");
             System.out.println("-----------------------------------------------------");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -275,7 +277,7 @@ public class Main {
                         System.out.println("                  1.Delete visitor :                 ");
                         System.out.println("                  2.Delete room :                    ");
                         System.out.println("                  3.Delete slot :                    ");
-                        System.out.println("                  0.exit :                           ");
+                        System.out.println("                  0.Exit :                           ");
                         System.out.println("-----------------------------------------------------");
 
                         c = scanner.nextInt();
@@ -291,7 +293,7 @@ public class Main {
                                 admin.deleteRoom(id);
                                 break;
                             case 3:
-                                System.out.println("slot number");
+                                System.out.println("Slot number");
                                 id = scanner.nextInt();
                                 admin.deleteSlot(id);
                                 break;
@@ -327,11 +329,11 @@ public class Main {
                     do {
                         int IDtoUpdate;
                         System.out.println("-----------------------------------------------------");
-                        System.out.println("               1.update visitor data :               ");
-                        System.out.println("               2.update room data :                  ");
-                        System.out.println("               3.update slot data:                   ");
-                        System.out.println("               0.save your updates :                 ");
-                        System.out.println("               enter your choice :                   ");
+                        System.out.println("               1.Update visitor data :               ");
+                        System.out.println("               2.Update room data :                  ");
+                        System.out.println("               3.Update slot data:                   ");
+                        System.out.println("               0.Save your updates :                 ");
+                        System.out.println("               Enter your choice :                   ");
                         System.out.println("-----------------------------------------------------");
                         C = scanner.nextInt();
                         switch (C) {
@@ -341,12 +343,12 @@ public class Main {
                                 admin.updateVisitor(IDtoUpdate);
                                 break;
                             case 2:
-                                System.out.println(" Enter room id");
+                                System.out.println("Enter room id");
                                 IDtoUpdate = scanner.nextInt();
                                 admin.updateRoom(IDtoUpdate);
                                 break;
                             case 3:
-                                System.out.println(" Enter slot number");
+                                System.out.println("Enter slot number");
                                 IDtoUpdate = scanner.nextInt();
                                 admin.updateSlot(IDtoUpdate);
 

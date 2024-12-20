@@ -1,7 +1,7 @@
 public class TeachingRoom extends Room {
     private String projectorType;
     private String boardType;
-    private String  InstructorName;
+    private String InstructorName;
 
     public TeachingRoom(String name, int ID, String projectorType, String boardType) {
         super(name, ID);

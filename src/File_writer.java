@@ -1,6 +1,7 @@
 import java.io.*;
 
 public class File_writer {
+
     public void VisitorData() throws IOException {
         String file="VisitorData";
         BufferedWriter writerr=new BufferedWriter(new FileWriter(file));

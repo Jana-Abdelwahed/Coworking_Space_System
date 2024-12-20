@@ -6,13 +6,12 @@ import java.time.temporal.WeekFields;
 
 class Visitor extends User {
     public int ID;
+    public List<Slot> reservations = new ArrayList<>();
     private String type;
     private int hoursBooked;
     private boolean penaltyDue = false;
-    public List<Slot> reservations = new ArrayList<>();
     private final Scanner scanner = new Scanner(System.in);
     private static int lastWeek = -1;
-
 
 
     public Visitor(String type, String name, String password, int ID, int hoursBooked) {
@@ -41,9 +40,6 @@ class Visitor extends User {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getHoursBooked() {
         return hoursBooked;
@@ -53,17 +49,7 @@ class Visitor extends User {
         this.hoursBooked = hoursBooked;
     }
 
-    public boolean isPenaltyDue() {
-        return penaltyDue;
-    }
 
-    public void setPenaltyDue(boolean penaltyDue) {
-        this.penaltyDue = penaltyDue;
-    }
-
-    public List<Slot> getReservations() {
-        return reservations;
-    }
 
     public void incrementHoursBooked() {
         this.hoursBooked += 1;
@@ -136,11 +122,6 @@ class Visitor extends User {
             WorkSpace.meetingRooms.forEach(MeetingRoom::displayAvailableSlots);
         } else if (this.getType().equalsIgnoreCase("Instructor")) {
             WorkSpace.teachingRooms.forEach(TeachingRoom::displayAvailableSlots);
-        } else {
-            System.out.println("-----------------------------------------------------");
-            System.out.println("    Invalid type. Cannot proceed with reservation.   ");
-            System.out.println("-----------------------------------------------------");
-            return;
         }
         System.out.println("-----------------------------------------------------");
         System.out.println("Enter slot number:");
@@ -175,8 +156,6 @@ class Visitor extends User {
                     }
                 }
             }
-
-
         }
         System.out.println("-----------------------------------------------------");
         System.out.println("   Failed to make a reservation. Please try again.   ");
@@ -219,7 +198,7 @@ class Visitor extends User {
         boolean hasReservation = false;
 
         for (int i = 0; i < WorkSpace.AllSlots.size(); i++) {
-            Slot slot = WorkSpace.AllSlots.get(i); // Access the slot at index i
+            Slot slot = WorkSpace.AllSlots.get(i);
             if (slot.Id_Reservation == visitorID) {
                 hasReservation = true;
                 System.out.println(i + " -> " +slot.date + "\t" + slot.time + "\t" + slot.fees + "\t" + slot.roomName);
@@ -261,7 +240,7 @@ class Visitor extends User {
             int z;
             switch (choice) {
                 case 1:
-                    displayReservationsData();
+                    displayVisitorReservation();
                     System.out.println("Enter the index of the reservation you want to update:");
                     z = scanner.nextInt();
                     if (z >= 0 && z < reservations.size()) {
@@ -275,7 +254,7 @@ class Visitor extends User {
                     break;
 
                 case 2:
-                    displayReservationsData();
+                    displayVisitorReservation();
                     System.out.println("Enter the index of the reservation you want to update:");
                     z = scanner.nextInt();
                     if (z >= 0 && z < reservations.size()) {
@@ -289,7 +268,7 @@ class Visitor extends User {
                     break;
 
                 case 3:
-                    displayReservationsData();
+                    displayVisitorReservation();
                     System.out.println("Enter the index of the reservation you want to update:");
                     z = scanner.nextInt();
                     if (z >= 0 && z < reservations.size()) {
@@ -319,6 +298,7 @@ class Visitor extends User {
         System.out.println("-----------------------------------------------------");
     }
 
+
     public static int getCurrentWeek() {
 
         return LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfYear());
@@ -331,6 +311,7 @@ class Visitor extends User {
             resetLeaderboard();
         }
         return false;
+
     }
     public static void leaderBoard() {
 

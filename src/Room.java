@@ -5,7 +5,7 @@ import java.util.Scanner;
 public abstract class Room {
     private  int ID ;
     private String name;
-    public    ArrayList <Slot> slots = new ArrayList<>();
+    public    ArrayList<Slot> slots = new ArrayList<>();
     public    ArrayList<Visitor> visitors = new ArrayList<>();
 
     public Room(String name, int ID) {
@@ -16,7 +16,6 @@ public abstract class Room {
     public Room(){
 
     }
-
 
     public String getName() {
         return name;

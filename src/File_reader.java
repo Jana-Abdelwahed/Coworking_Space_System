@@ -8,7 +8,6 @@ public class File_reader {
         BufferedReader reader = null;
         String line2 = "";
 
-
         reader = new BufferedReader(new FileReader(file));
         while((line2 = reader.readLine()) != null) {
             String[] row = line2.split(",");

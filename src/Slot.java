@@ -4,7 +4,6 @@ public class Slot {
     public String time;
     public String date;
     public double fees;
-
     public String availability;
     public int Id_Reservation;
     public String roomName;
